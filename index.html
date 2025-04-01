@@ -7,18 +7,19 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
+  <header class="header bg-dark text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
       <h1>Urban Threads</h1>
       <nav class="nav">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#" onclick="toggleLoginSignup()">Login / Signup</a></li>
+        <ul class="nav">
+          <li class="nav-item"><a href="#" class="nav-link text-white">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link text-white">Products</a></li>
+          <li class="nav-item"><a href="#" class="nav-link text-white">About</a></li>
+          <li class="nav-item"><a href="#" class="nav-link text-white">Contact</a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link text-white">Login / Signup</a></li>
         </ul>
       </nav>
     </div>
@@ -27,76 +28,88 @@
   <section class="hero">
     <div class="container">
       <div class="hero-slider">
-        <div><img src="hero1.jpg" alt="Hero Image 1"></div>
-        <div><img src="hero2.jpg" alt="Hero Image 2"></div>
-        <div><img src="hero3.jpg" alt="Hero Image 3"></div>
+        <div><img src="hero1.jpg" alt="Hero Image 1" class="img-fluid"></div>
+        <div><img src="hero2.jpg" alt="Hero Image 2" class="img-fluid"></div>
+        <div><img src="hero3.jpg" alt="Hero Image 3" class="img-fluid"></div>
       </div>
-      <h2>Discover the Latest Fashion Trends</h2>
-      <a href="#" class="btn">Shop Now</a>
-    </div>
-  </section>
-
-  <section class="categories">
-    <div class="container">
-      <h2>Shop by Category</h2>
-      <div class="category-list">
-        <div class="category-card">
-          <img src="category1.jpg" alt="Mens">
-          <h3>Mens</h3>
-        </div>
-        <div class="category-card">
-          <img src="category2.jpg" alt="Womens">
-          <h3>Womens</h3>
-        </div>
-        <div class="category-card">
-          <img src="category3.jpg" alt="Kids">
-          <h3>Kids</h3>
-        </div>
-        <div class="category-card">
-          <img src="category4.jpg" alt="Accessories">
-          <h3>Accessories</h3>
-        </div>
+      <h2 class="text-center my-4">Discover the Latest Fashion Trends</h2>
+      <div class="text-center">
+        <a href="#" class="btn btn-primary btn-lg">Shop Now</a>
       </div>
     </div>
   </section>
 
-  <section class="products">
+  <section class="categories py-5 bg-light">
     <div class="container">
-      <h2>Featured Products</h2>
-      <div id="product-list" class="product-list"></div>
+      <h2 class="text-center mb-4">Shop by Category</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="category1.jpg" class="card-img-top" alt="Mens">
+            <div class="card-body">
+              <h5 class="card-title text-center">Mens</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="category2.jpg" class="card-img-top" alt="Womens">
+            <div class="card-body">
+              <h5 class="card-title text-center">Womens</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="category3.jpg" class="card-img-top" alt="Kids">
+            <div class="card-body">
+              <h5 class="card-title text-center">Kids</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="category4.jpg" class="card-img-top" alt="Accessories">
+            <div class="card-body">
+              <h5 class="card-title text-center">Accessories</h5>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="about">
+  <section class="products py-5">
     <div class="container">
-      <h2>About Us</h2>
-      <p>Urban Threads is a leading clothing brand known for its stylish and comfortable apparel. Our mission is to provide high-quality fashion items that meet the needs of modern consumers. From casual wear to formal attire, we offer a wide range of products that cater to different tastes and preferences.</p>
-      <p>Founded in 2020, Urban Threads has quickly become a favorite among fashion enthusiasts. Our commitment to excellence and customer satisfaction is at the core of everything we do. Join us on our journey to redefine fashion and make a statement with every outfit.</p>
+      <h2 class="text-center mb-4">Featured Products</h2>
+      <div id="product-list" class="row"></div>
     </div>
   </section>
 
-  <section class="cart">
+  <section class="about py-5 bg-light">
     <div class="container">
-      <h2>Your Cart</h2>
-      <div id="cart-list" class="cart-list"></div>
-      <button onclick="checkout()">Checkout</button>
+      <h2 class="text-center mb-4">About Us</h2>
+      <p class="text-center">Urban Threads is a leading clothing brand known for its stylish and comfortable apparel. Our mission is to provide high-quality fashion items that meet the needs of modern consumers. From casual wear to formal attire, we offer a wide range of products that cater to different tastes and preferences.</p>
+      <p class="text-center">Founded in 2020, Urban Threads has quickly become a favorite among fashion enthusiasts. Our commitment to excellence and customer satisfaction is at the core of everything we do. Join us on our journey to redefine fashion and make a statement with every outfit.</p>
     </div>
   </section>
 
-  <div id="signup-login-form" class="form-container">
-    <h3 id="form-title">Signup</h3>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button onclick="submitForm()">Submit</button>
-    <button onclick="toggleLoginSignup()">Cancel</button>
-  </div>
-
-  <footer class="footer">
+  <section class="cart py-5">
     <div class="container">
-      <div class="social-media">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+      <h2 class="text-center mb-4">Your Cart</h2>
+      <div id="cart-list" class="list-group"></div>
+      <div class="text-center mt-4">
+        <button onclick="checkout()" class="btn btn-success btn-lg">Checkout</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer bg-dark text-white py-4">
+    <div class="container text-center">
+      <div class="social-media mb-3">
+        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
       </div>
       <p>&copy; 2025 Urban Threads. All rights reserved.</p>
     </div>
@@ -104,6 +117,7 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
