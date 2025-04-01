@@ -2,6 +2,11 @@ const products = [
   { id: 1, name: "Classic Hoodie", price: "$49.99", image: "hoodie.jpg", description: "A cozy, stylish hoodie for all seasons." },
   { id: 2, name: "Vintage T-Shirt", price: "$29.99", image: "tshirt.jpg", description: "A retro-styled t-shirt for everyday comfort." },
   { id: 3, name: "Denim Jacket", price: "$79.99", image: "jacket.jpg", description: "A classic denim jacket that never goes out of style." },
+  { id: 4, name: "Sports Shoes", price: "$99.99", image: "shoes.jpg", description: "Comfortable and stylish sports shoes for all activities." },
+  { id: 5, name: "Leather Belt", price: "$19.99", image: "belt.jpg", description: "A premium leather belt to complement any outfit." },
+  { id: 6, name: "Summer Hat", price: "$14.99", image: "hat.jpg", description: "A stylish hat perfect for summer days." },
+  { id: 7, name: "Wrist Watch", price: "$149.99", image: "watch.jpg", description: "A luxurious wrist watch with a classic design." },
+  { id: 8, name: "Sunglasses", price: "$24.99", image: "sunglasses.jpg", description: "Trendy sunglasses to protect your eyes and enhance your style." },
 ];
 
 let cart = [];
@@ -93,4 +98,12 @@ function submitForm() {
 }
 
 // Initial setup
+$(document).ready(function(){
+  $('.hero-slider').slick({
+    autoplay: true,
+    autoplaySpeed: 3000,
+    dots: true,
+  });
+});
+
 displayProducts();
