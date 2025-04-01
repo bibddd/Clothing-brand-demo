@@ -1,0 +1,41 @@
+```html name=index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Threads - Clothing Brand</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Urban Threads</h1>
+    <div id="user-info"></div>
+    <button onclick="toggleLoginSignup()">Login / Signup</button>
+  </div>
+
+  <div class="product-container">
+    <h2>Available Products</h2>
+    <div id="product-list" class="product-list"></div>
+  </div>
+
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+    <div id="cart-list" class="cart-list"></div>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+
+  <div id="signup-login-form" class="form-container">
+    <h3 id="form-title">Signup</h3>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="submitForm()">Submit</button>
+    <button onclick="toggleLoginSignup()">Cancel</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+...
+
+
