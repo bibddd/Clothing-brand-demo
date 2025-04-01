@@ -21,4 +21,84 @@ function displayProducts(category = '') {
 
   filteredProducts.forEach(product => {
     const productCard = document.createElement("div");
-    productCard.classList.add("col-md-3", "
+    productCard.classList.add("col-md-3");
+    productCard.innerHTML = `
+      <div class="card mb-4">
+        <img src="${product.image}" class="card-img-top" alt="${product.name}">
+        <div class="card-body">
+          <h5 class="card-title">${product.name}</h5>
+          <p class="card-text">${product.price}</p>
+          <p class="card-text">${product.description}</p>
+          <a href="product.html?id=${product.id}" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    `;
+    productList.appendChild(productCard);
+  });
+}
+
+function filterProducts(category) {
+  displayProducts(category);
+}
+
+function addToCart() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = parseInt(urlParams.get('id'));
+  const product = products.find(p => p.id === productId);
+  cart.push(product);
+  updateCart();
+}
+
+function updateCart() {
+  const cartList = document.getElementById("cart-list");
+  cartList.innerHTML = ""; // Clear the existing cart items
+
+  cart.forEach(product => {
+    const cartItem = document.createElement("li");
+    cartItem.classList.add("list-group-item");
+    cartItem.textContent = `${product.name}: ${product.price}`;
+    cartList.appendChild(cartItem);
+  });
+}
+
+function checkout() {
+  if (!user) {
+    alert("Please log in to proceed with checkout.");
+    return;
+  }
+
+  const shippingInfo = prompt("Enter shipping info (Name, Address, City, Zip)");
+  if (shippingInfo) {
+    alert(`Order confirmed! Shipping info: ${shippingInfo}`);
+    cart = []; // Clear the cart
+    updateCart();
+  }
+}
+
+function loadProductDetails() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = parseInt(urlParams.get('id'));
+  const product = products.find(p => p.id === productId);
+
+  document.getElementById('product-name').textContent = product.name;
+  document.getElementById('product-price').textContent = product.price;
+  document.getElementById('product-description').textContent = product.description;
+  document.getElementById('product-reviews').textContent = `${product.reviews} stars`;
+  document.getElementById('product-details').textContent = product.details;
+
+  $('.product-slider').slick({
+    autoplay: true,
+    autoplaySpeed: 3000,
+    dots: true,
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('product-list')) {
+    displayProducts();
+  }
+
+  if (document.getElementById('product-name')) {
+    loadProductDetails();
+  }
+});
