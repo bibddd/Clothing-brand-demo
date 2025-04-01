@@ -1,109 +1,24 @@
 const products = [
-  { id: 1, name: "Classic Hoodie", price: "$49.99", image: "hoodie.jpg", description: "A cozy, stylish hoodie for all seasons." },
-  { id: 2, name: "Vintage T-Shirt", price: "$29.99", image: "tshirt.jpg", description: "A retro-styled t-shirt for everyday comfort." },
-  { id: 3, name: "Denim Jacket", price: "$79.99", image: "jacket.jpg", description: "A classic denim jacket that never goes out of style." },
-  { id: 4, name: "Sports Shoes", price: "$99.99", image: "shoes.jpg", description: "Comfortable and stylish sports shoes for all activities." },
-  { id: 5, name: "Leather Belt", price: "$19.99", image: "belt.jpg", description: "A premium leather belt to complement any outfit." },
-  { id: 6, name: "Summer Hat", price: "$14.99", image: "hat.jpg", description: "A stylish hat perfect for summer days." },
-  { id: 7, name: "Wrist Watch", price: "$149.99", image: "watch.jpg", description: "A luxurious wrist watch with a classic design." },
-  { id: 8, name: "Sunglasses", price: "$24.99", image: "sunglasses.jpg", description: "Trendy sunglasses to protect your eyes and enhance your style." },
+  { id: 1, category: 'Mens', name: "Classic Hoodie", price: "$49.99", image: "hoodie.jpg", description: "A cozy, stylish hoodie for all seasons.", reviews: 5, details: "Made from high-quality cotton, available in various sizes." },
+  { id: 2, category: 'Mens', name: "Vintage T-Shirt", price: "$29.99", image: "tshirt.jpg", description: "A retro-styled t-shirt for everyday comfort.", reviews: 4, details: "100% cotton, available in multiple colors." },
+  { id: 3, category: 'Mens', name: "Denim Jacket", price: "$79.99", image: "jacket.jpg", description: "A classic denim jacket that never goes out of style.", reviews: 5, details: "Durable denim, perfect for all seasons." },
+  { id: 4, category: 'Womens', name: "Sports Shoes", price: "$99.99", image: "shoes.jpg", description: "Comfortable and stylish sports shoes for all activities.", reviews: 5, details: "Lightweight and breathable, available in multiple sizes." },
+  { id: 5, category: 'Womens', name: "Leather Belt", price: "$19.99", image: "belt.jpg", description: "A premium leather belt to complement any outfit.", reviews: 4, details: "Genuine leather, adjustable length." },
+  { id: 6, category: 'Kids', name: "Summer Hat", price: "$14.99", image: "hat.jpg", description: "A stylish hat perfect for summer days.", reviews: 4, details: "Breathable material, one size fits all." },
+  { id: 7, category: 'Accessories', name: "Wrist Watch", price: "$149.99", image: "watch.jpg", description: "A luxurious wrist watch with a classic design.", reviews: 5, details: "Water-resistant, available in various styles." },
+  { id: 8, category: 'Accessories', name: "Sunglasses", price: "$24.99", image: "sunglasses.jpg", description: "Trendy sunglasses to protect your eyes and enhance your style.", reviews: 4, details: "UV protection, available in multiple colors." },
+  // Add more products up to 30
 ];
 
 let cart = [];
 let user = null;
 
-function displayProducts() {
+function displayProducts(category = '') {
   const productList = document.getElementById("product-list");
   productList.innerHTML = ""; // Clear the existing list
 
-  products.forEach(product => {
+  let filteredProducts = category ? products.filter(product => product.category === category) : products;
+
+  filteredProducts.forEach(product => {
     const productCard = document.createElement("div");
-    productCard.classList.add("product-card");
-
-    productCard.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <p>${product.price}</p>
-      <p>${product.description}</p>
-      <button onclick="addToCart(${product.id})">Add to Cart</button>
-    `;
-
-    productList.appendChild(productCard);
-  });
-}
-
-function addToCart(productId) {
-  const product = products.find(p => p.id === productId);
-  cart.push(product);
-  updateCart();
-}
-
-function updateCart() {
-  const cartList = document.getElementById("cart-list");
-  cartList.innerHTML = ""; // Clear the existing cart items
-
-  cart.forEach(product => {
-    const cartItem = document.createElement("li");
-    cartItem.textContent = `${product.name}: ${product.price}`;
-    cartList.appendChild(cartItem);
-  });
-}
-
-function checkout() {
-  if (!user) {
-    alert("Please log in to proceed with checkout.");
-    return;
-  }
-
-  const shippingInfo = prompt("Enter shipping info (Name, Address, City, Zip)");
-  if (shippingInfo) {
-    alert(`Order confirmed! Shipping info: ${shippingInfo}`);
-    cart = []; // Clear the cart
-    updateCart();
-  }
-}
-
-function toggleLoginSignup() {
-  const form = document.getElementById("signup-login-form");
-  const formTitle = document.getElementById("form-title");
-
-  if (form.style.display === "none" || form.style.display === "") {
-    form.style.display = "block";
-    formTitle.textContent = user ? "Log Out" : "Signup";
-  } else {
-    form.style.display = "none";
-  }
-}
-
-function submitForm() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  if (!email || !password) {
-    alert("Please provide both email and password.");
-    return;
-  }
-
-  if (user) {
-    // Logout the user
-    user = null;
-    document.getElementById("user-info").textContent = "You are logged out";
-    toggleLoginSignup();
-  } else {
-    // Signup the user
-    user = { email, password };
-    document.getElementById("user-info").textContent = `Logged in as ${email}`;
-    toggleLoginSignup();
-  }
-}
-
-// Initial setup
-$(document).ready(function(){
-  $('.hero-slider').slick({
-    autoplay: true,
-    autoplaySpeed: 3000,
-    dots: true,
-  });
-});
-
-displayProducts();
+    productCard.classList.add("col-md-3", "
