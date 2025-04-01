@@ -1,4 +1,3 @@
-```html name=index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,24 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Urban Threads - Clothing Brand</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-  <div class="header">
-    <h1>Urban Threads</h1>
-    <div id="user-info"></div>
-    <button onclick="toggleLoginSignup()">Login / Signup</button>
-  </div>
+  <header class="header">
+    <div class="container">
+      <h1>Urban Threads</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#" onclick="toggleLoginSignup()">Login / Signup</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <div class="product-container">
-    <h2>Available Products</h2>
-    <div id="product-list" class="product-list"></div>
-  </div>
+  <section class="hero">
+    <div class="container">
+      <h2>Discover the Latest Fashion Trends</h2>
+      <a href="#" class="btn">Shop Now</a>
+    </div>
+  </section>
 
-  <div class="cart-container">
-    <h2>Your Cart</h2>
-    <div id="cart-list" class="cart-list"></div>
-    <button onclick="checkout()">Checkout</button>
-  </div>
+  <section class="products">
+    <div class="container">
+      <h2>Featured Products</h2>
+      <div id="product-list" class="product-list"></div>
+    </div>
+  </section>
+
+  <section class="cart">
+    <div class="container">
+      <h2>Your Cart</h2>
+      <div id="cart-list" class="cart-list"></div>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </section>
 
   <div id="signup-login-form" class="form-container">
     <h3 id="form-title">Signup</h3>
@@ -33,9 +53,12 @@
     <button onclick="toggleLoginSignup()">Cancel</button>
   </div>
 
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Urban Threads. All rights reserved.</p>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
-...
-
-
