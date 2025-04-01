@@ -1,98 +1,182 @@
-```javascript name=script.js
-const products = [
-  { id: 1, name: "Classic Hoodie", price: "$49.99", image: "hoodie.jpg", description: "A cozy, stylish hoodie for all seasons." },
-  { id: 2, name: "Vintage T-Shirt", price: "$29.99", image: "tshirt.jpg", description: "A retro-styled t-shirt for everyday comfort." },
-  { id: 3, name: "Denim Jacket", price: "$79.99", image: "jacket.jpg", description: "A classic denim jacket that never goes out of style." },
-];
-
-let cart = [];
-let user = null;
-
-function displayProducts() {
-  const productList = document.getElementById("product-list");
-  productList.innerHTML = ""; // Clear the existing list
-
-  products.forEach(product => {
-    const productCard = document.createElement("div");
-    productCard.classList.add("product-card");
-
-    productCard.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <p>${product.price}</p>
-      <p>${product.description}</p>
-      <button onclick="addToCart(${product.id})">Add to Cart</button>
-    `;
-
-    productList.appendChild(productCard);
-  });
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-function addToCart(productId) {
-  const product = products.find(p => p.id === productId);
-  cart.push(product);
-  updateCart();
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-function updateCart() {
-  const cartList = document.getElementById("cart-list");
-  cartList.innerHTML = ""; // Clear the existing cart items
-
-  cart.forEach(product => {
-    const cartItem = document.createElement("li");
-    cartItem.textContent = `${product.name}: ${product.price}`;
-    cartList.appendChild(cartItem);
-  });
+.container {
+  width: 80%;
+  margin: 0 auto;
 }
 
-function checkout() {
-  if (!user) {
-    alert("Please log in to proceed with checkout.");
-    return;
-  }
-
-  const shippingInfo = prompt("Enter shipping info (Name, Address, City, Zip)");
-  if (shippingInfo) {
-    alert(`Order confirmed! Shipping info: ${shippingInfo}`);
-    cart = []; // Clear the cart
-    updateCart();
-  }
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-function toggleLoginSignup() {
-  const form = document.getElementById("signup-login-form");
-  const formTitle = document.getElementById("form-title");
-
-  if (form.style.display === "none" || form.style.display === "") {
-    form.style.display = "block";
-    formTitle.textContent = user ? "Log Out" : "Signup";
-  } else {
-    form.style.display = "none";
-  }
+.header h1 {
+  font-size: 2rem;
 }
 
-function submitForm() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  if (!email || !password) {
-    alert("Please provide both email and password.");
-    return;
-  }
-
-  if (user) {
-    // Logout the user
-    user = null;
-    document.getElementById("user-info").textContent = "You are logged out";
-    toggleLoginSignup();
-  } else {
-    // Signup the user
-    user = { email, password };
-    document.getElementById("user-info").textContent = `Logged in as ${email}`;
-    toggleLoginSignup();
-  }
+.nav ul {
+  display: flex;
+  list-style-type: none;
 }
 
-// Initial setup
-displayProducts();
-```
+.nav ul li {
+  margin: 0 15px;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  background-image: url('hero.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  color: white;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.hero .btn:hover {
+  background-color: #2980b9;
+}
+
+.products {
+  padding: 50px 0;
+}
+
+.products h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.product-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  background-color: white;
+  width: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.product-card p {
+  color: #7f8c8d;
+  margin: 5px 0;
+}
+
+.product-card button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #2980b9;
+}
+
+.cart {
+  padding: 50px 0;
+}
+
+.cart h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cart-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-list li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+  display: none;
+  text-align: center;
+}
+
+.form-container input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 80%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #34495e;
+}
+
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
