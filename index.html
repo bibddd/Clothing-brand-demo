@@ -6,6 +6,7 @@
   <title>Urban Threads - Clothing Brand</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 </head>
 <body>
   <header class="header">
@@ -25,8 +26,37 @@
 
   <section class="hero">
     <div class="container">
+      <div class="hero-slider">
+        <div><img src="hero1.jpg" alt="Hero Image 1"></div>
+        <div><img src="hero2.jpg" alt="Hero Image 2"></div>
+        <div><img src="hero3.jpg" alt="Hero Image 3"></div>
+      </div>
       <h2>Discover the Latest Fashion Trends</h2>
       <a href="#" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="container">
+      <h2>Shop by Category</h2>
+      <div class="category-list">
+        <div class="category-card">
+          <img src="category1.jpg" alt="Mens">
+          <h3>Mens</h3>
+        </div>
+        <div class="category-card">
+          <img src="category2.jpg" alt="Womens">
+          <h3>Womens</h3>
+        </div>
+        <div class="category-card">
+          <img src="category3.jpg" alt="Kids">
+          <h3>Kids</h3>
+        </div>
+        <div class="category-card">
+          <img src="category4.jpg" alt="Accessories">
+          <h3>Accessories</h3>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -34,6 +64,14 @@
     <div class="container">
       <h2>Featured Products</h2>
       <div id="product-list" class="product-list"></div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Urban Threads is a leading clothing brand known for its stylish and comfortable apparel. Our mission is to provide high-quality fashion items that meet the needs of modern consumers. From casual wear to formal attire, we offer a wide range of products that cater to different tastes and preferences.</p>
+      <p>Founded in 2020, Urban Threads has quickly become a favorite among fashion enthusiasts. Our commitment to excellence and customer satisfaction is at the core of everything we do. Join us on our journey to redefine fashion and make a statement with every outfit.</p>
     </div>
   </section>
 
@@ -55,10 +93,17 @@
 
   <footer class="footer">
     <div class="container">
+      <div class="social-media">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
       <p>&copy; 2025 Urban Threads. All rights reserved.</p>
     </div>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
