@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ruddy's Store - Clothing Brand</title>
+  <title>Product Details - Ruddy's Store</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
@@ -25,16 +25,24 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="product-details py-5">
     <div class="container">
-      <div class="hero-slider">
-        <div><img src="hero1.jpg" alt="Hero Image 1" class="img-fluid"></div>
-        <div><img src="hero2.jpg" alt="Hero Image 2" class="img-fluid"></div>
-        <div><img src="hero3.jpg" alt="Hero Image 3" class="img-fluid"></div>
-      </div>
-      <h2 class="text-center my-4">Discover the Latest Fashion Trends</h2>
-      <div class="text-center">
-        <a href="categories.html" class="btn btn-primary btn-lg">Shop Now</a>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="product-slider">
+            <div><img src="product1.jpg" alt="Product Image 1" class="img-fluid"></div>
+            <div><img src="product2.jpg" alt="Product Image 2" class="img-fluid"></div>
+            <div><img src="product3.jpg" alt="Product Image 3" class="img-fluid"></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h2 id="product-name">Product Name</h2>
+          <p id="product-price" class="text-muted">Price</p>
+          <p id="product-description">Description</p>
+          <p>Reviews: <span id="product-reviews">5 stars</span></p>
+          <p>Details: <span id="product-details">Product details here.</span></p>
+          <button onclick="addToCart()" class="btn btn-success btn-lg">Add to Cart</button>
+        </div>
       </div>
     </div>
   </section>
